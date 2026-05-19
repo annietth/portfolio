@@ -133,7 +133,31 @@ const process = [
 export default function PortfolioAnnie() {
   const [language, setLanguage] = useState("en");
   const [theme, setTheme] = useState("light");
+  const [clickedCard, setClickedCard] = useState<number | null>(null);
   const t = translations[language];
+
+  const playTocSound = () => {
+    const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+
+    oscillator.frequency.value = 800;
+    oscillator.type = "sine";
+    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + 0.1);
+  };
+
+  const handleCardClick = (index: number) => {
+    playTocSound();
+    setClickedCard(index);
+    setTimeout(() => setClickedCard(null), 600);
+  };
 
   return (
     <div className={`portfolio-page ${theme === "dark" ? "dark-mode" : "light-mode"}`}>
@@ -595,7 +619,27 @@ export default function PortfolioAnnie() {
           background: rgba(247, 239, 231, 0.9);
           padding: 16px 20px;
           box-shadow: 0 18px 55px rgba(54, 17, 16, 0.12);
-          transform: rotate(-3deg);
+          transform: rotate(-3deg) perspective(1000px) rotateY(0deg) rotateX(0deg);
+          cursor: pointer;
+          transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .memory-card:hover {
+          transform: rotate(-3deg) perspective(1000px) rotateY(-8deg) rotateX(4deg) translateZ(20px);
+          box-shadow: 0 28px 80px rgba(54, 17, 16, 0.24);
+        }
+        .memory-card.clicked {
+          animation: popOut 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes popOut {
+          0% {
+            transform: rotate(-3deg) perspective(1000px) rotateY(-8deg) rotateX(4deg) translateZ(20px) scale(1);
+          }
+          50% {
+            transform: rotate(-3deg) perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(60px) scale(1.08);
+          }
+          100% {
+            transform: rotate(-1deg) perspective(1000px) rotateY(8deg) rotateX(-4deg) translateZ(40px) scale(1.05);
+          }
         }
         .artifact-top {
           display: flex;
@@ -861,12 +905,13 @@ export default function PortfolioAnnie() {
                     </motion.div>
 
                     <motion.div
-                      className="memory-card"
+                      className={`memory-card ${clickedCard === index ? "clicked" : ""}`}
                       variants={{
                         rest: { y: 0, rotate: -3 },
                         hover: { y: 14, rotate: -1 },
                       }}
                       transition={{ type: "spring", stiffness: 170, damping: 18 }}
+                      onClick={() => handleCardClick(index)}
                     >
                       <p className="serif" style={{ fontSize: 26, margin: 0 }}>
                         {project.archive}
