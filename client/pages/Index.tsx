@@ -163,6 +163,24 @@ export default function PortfolioAnnie() {
 
   return (
     <div className={`portfolio-page ${theme === "dark" ? "dark-mode" : "light-mode"}`}>
+      {emotionHovered && (
+        <div className="flowers-container">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <div
+              key={i}
+              className="flower"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `-100px`,
+                '--tx': `${(Math.random() - 0.5) * 400}px` as React.CSSProperties,
+                animationDelay: `${Math.random() * 0.5}s`,
+              } as React.CSSProperties}
+            >
+              🌸
+            </div>
+          ))}
+        </div>
+      )}
       <style>{`
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -465,12 +483,22 @@ export default function PortfolioAnnie() {
         @keyframes flowerFall {
           0% {
             opacity: 1;
-            transform: translateY(0) translateX(0) scale(1) rotate(0deg);
+            transform: translateY(-100px) translateX(0) scale(1) rotate(0deg);
           }
           100% {
             opacity: 0;
-            transform: translateY(180px) translateX(var(--tx)) scale(0.5) rotate(360deg);
+            transform: translateY(100vh) translateX(var(--tx)) scale(0.5) rotate(360deg);
           }
+        }
+        .flowers-container {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          pointer-events: none;
+          z-index: 10;
+          overflow: hidden;
         }
         .floating-card {
           position: absolute;
@@ -869,23 +897,6 @@ export default function PortfolioAnnie() {
 
       <main>
         <section className="section hero">
-          {emotionHovered && (
-            <div className="flower-burst" style={{ position: 'absolute', inset: 0 }}>
-              {Array.from({ length: 8 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="flower"
-                  style={{
-                    left: `${20 + i * 10}%`,
-                    top: `-40px`,
-                    '--tx': `${(Math.random() - 0.5) * 200}px` as React.CSSProperties,
-                  } as React.CSSProperties}
-                >
-                  🌸
-                </div>
-              ))}
-            </div>
-          )}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
