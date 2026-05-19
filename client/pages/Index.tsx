@@ -447,6 +447,28 @@ export default function PortfolioAnnie() {
           box-shadow: 0 24px 70px rgba(54, 17, 16, 0.12);
           backdrop-filter: blur(20px);
           max-width: 240px;
+          animation: stickerSpin 6s linear infinite;
+          will-change: transform;
+        }
+        @keyframes stickerSpin {
+          0% {
+            transform: rotate(-8deg) scale(1);
+          }
+          25% {
+            transform: rotate(12deg) scale(1.02);
+          }
+          50% {
+            transform: rotate(35deg) scale(0.98);
+          }
+          75% {
+            transform: rotate(8deg) scale(1.02);
+          }
+          100% {
+            transform: rotate(-8deg) scale(1);
+          }
+        }
+        .floating-card:hover {
+          animation-play-state: paused;
         }
         .floating-card p { margin: 0; }
         .floating-card .small { margin-top: 8px; color: rgba(43, 15, 13, 0.78); line-height: 1.6; }
