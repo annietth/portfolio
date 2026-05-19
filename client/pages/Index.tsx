@@ -135,6 +135,7 @@ export default function PortfolioAnnie() {
   const [language, setLanguage] = useState("en");
   const [theme, setTheme] = useState("light");
   const [clickedCard, setClickedCard] = useState<number | null>(null);
+  const [emotionHovered, setEmotionHovered] = useState(false);
   const t = translations[language];
 
   const playTocSound = () => {
@@ -434,6 +435,41 @@ export default function PortfolioAnnie() {
           to {
             transform: translateY(-18px) scale(1.06);
             opacity: 1;
+          }
+        }
+        .emotion-highlight {
+          cursor: pointer;
+          position: relative;
+          font-weight: 500;
+          transition: all 0.3s ease;
+        }
+        .emotion-highlight:hover {
+          background: linear-gradient(120deg, rgba(236, 142, 92, 0.3), rgba(236, 142, 92, 0.1));
+          padding: 2px 6px;
+          border-radius: 4px;
+          color: #EC8E5C;
+        }
+        .flower-burst {
+          position: absolute;
+          pointer-events: none;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+        }
+        .flower {
+          position: absolute;
+          font-size: 32px;
+          opacity: 0;
+          animation: flowerFall 2s ease-out forwards;
+        }
+        @keyframes flowerFall {
+          0% {
+            opacity: 1;
+            transform: translateY(0) translateX(0) scale(1) rotate(0deg);
+          }
+          100% {
+            opacity: 0;
+            transform: translateY(180px) translateX(var(--tx)) scale(0.5) rotate(360deg);
           }
         }
         .floating-card {
@@ -833,6 +869,23 @@ export default function PortfolioAnnie() {
 
       <main>
         <section className="section hero">
+          {emotionHovered && (
+            <div className="flower-burst" style={{ position: 'absolute', inset: 0 }}>
+              {Array.from({ length: 8 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="flower"
+                  style={{
+                    left: `${20 + i * 10}%`,
+                    top: `-40px`,
+                    '--tx': `${(Math.random() - 0.5) * 200}px` as React.CSSProperties,
+                  } as React.CSSProperties}
+                >
+                  🌸
+                </div>
+              ))}
+            </div>
+          )}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -848,7 +901,20 @@ export default function PortfolioAnnie() {
           <div className="glow" />
           <div className="floating-card">
             <p className="serif" style={{ fontSize: 28 }}>memory archive</p>
-            <Link to="/portfolio">A portfolio about emotion, systems and useful products.</Link>
+            <Link
+              to="/portfolio"
+              onMouseEnter={() => setEmotionHovered(true)}
+              onMouseLeave={() => setEmotionHovered(false)}
+              style={{ position: 'relative' }}
+            >
+              A portfolio about{' '}
+              <span
+                className="emotion-highlight"
+              >
+                emotion
+              </span>
+              {', systems and useful products.'}
+            </Link>
           </div>
         </section>
 
