@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   ArrowUpRight,
   Sparkles,
@@ -471,7 +472,19 @@ export default function PortfolioAnnie() {
           animation-play-state: paused;
         }
         .floating-card p { margin: 0; }
-        .floating-card .small { margin-top: 8px; color: rgba(43, 15, 13, 0.78); line-height: 1.6; }
+        .floating-card a {
+          display: block;
+          margin-top: 8px;
+          color: rgba(43, 15, 13, 0.78);
+          line-height: 1.6;
+          text-decoration: none;
+          font-size: 14px;
+          transition: all 0.3s;
+        }
+        .floating-card a:hover {
+          color: #361110;
+          font-weight: 500;
+        }
         .section-head {
           display: flex;
           justify-content: space-between;
@@ -835,7 +848,7 @@ export default function PortfolioAnnie() {
           <div className="glow" />
           <div className="floating-card">
             <p className="serif" style={{ fontSize: 28 }}>memory archive</p>
-            <p className="small">A portfolio about emotion, systems and useful products.</p>
+            <Link to="/portfolio">A portfolio about emotion, systems and useful products.</Link>
           </div>
         </section>
 
