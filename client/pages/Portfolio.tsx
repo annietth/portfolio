@@ -1,5 +1,5 @@
-import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Portfolio() {
   return (
@@ -79,21 +79,33 @@ export default function Portfolio() {
             <ArrowLeft size={16} /> Back to Home
           </Link>
           <h1>Portfolio</h1>
-          <p>A curated collection of thoughtful design work exploring emotion, accessibility, and intelligent systems.</p>
+          <p>
+            A curated collection of thoughtful design work exploring emotion,
+            accessibility, and intelligent systems.
+          </p>
         </div>
 
         <div className="portfolio-grid">
           <div className="portfolio-item">
             <h3>Ouihelp</h3>
-            <p>Redesign of a digital healthcare experience focused on trust, clarity and emotional reassurance in sensitive human contexts.</p>
+            <p>
+              Redesign of a digital healthcare experience focused on trust,
+              clarity and emotional reassurance in sensitive human contexts.
+            </p>
           </div>
           <div className="portfolio-item">
             <h3>EchoMed</h3>
-            <p>A mobile AI experience allowing users to photograph medication and instantly receive simplified visual and voice explanations.</p>
+            <p>
+              A mobile AI experience allowing users to photograph medication and
+              instantly receive simplified visual and voice explanations.
+            </p>
           </div>
           <div className="portfolio-item">
             <h3>Memory Archives</h3>
-            <p>A visual universe inspired by memory archives, film photography and intimate storytelling experiences.</p>
+            <p>
+              A visual universe inspired by memory archives, film photography
+              and intimate storytelling experiences.
+            </p>
           </div>
         </div>
       </div>

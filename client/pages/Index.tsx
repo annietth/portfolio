@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import {
   ArrowUpRight,
   Sparkles,
@@ -12,128 +12,128 @@ import {
   Languages,
   Moon,
   Sun,
-} from "lucide-react";
+} from 'lucide-react';
 
 const projects = [
   {
-    title: "Ouihelp — UX/UI Case Study",
-    archive: "Case 01",
-    type: "Product Design · Healthcare · Service",
-    year: "2026",
+    title: 'Ouihelp — UX/UI Case Study',
+    archive: 'Case 01',
+    type: 'Product Design · Healthcare · Service',
+    year: '2026',
     description:
-      "Redesign of a digital healthcare experience focused on trust, clarity and emotional reassurance in sensitive human contexts.",
-    visual: "Clinical note",
-    action: "Open archive",
-    tags: ["UX Research", "UI Design", "Accessibility", "Design System"],
+      'Redesign of a digital healthcare experience focused on trust, clarity and emotional reassurance in sensitive human contexts.',
+    visual: 'Clinical note',
+    action: 'Open archive',
+    tags: ['UX Research', 'UI Design', 'Accessibility', 'Design System'],
   },
   {
-    title: "EchoMed — Accessible Medication AI",
-    archive: "Case 02",
-    type: "AI Product · Healthcare · Accessibility",
-    year: "2026",
+    title: 'EchoMed — Accessible Medication AI',
+    archive: 'Case 02',
+    type: 'AI Product · Healthcare · Accessibility',
+    year: '2026',
     description:
-      "A mobile AI experience allowing users to photograph medication and instantly receive simplified visual and voice explanations adapted for visually impaired, elderly or reading-impaired users.",
-    visual: "Voice scan",
-    action: "Enter experience",
-    tags: ["AI", "Accessibility", "Voice UX", "Healthcare"],
+      'A mobile AI experience allowing users to photograph medication and instantly receive simplified visual and voice explanations adapted for visually impaired, elderly or reading-impaired users.',
+    visual: 'Voice scan',
+    action: 'Enter experience',
+    tags: ['AI', 'Accessibility', 'Voice UX', 'Healthcare'],
   },
   {
-    title: "Memory Archives",
-    archive: "Case 03",
-    type: "Brand & Digital Experience",
-    year: "2026",
+    title: 'Memory Archives',
+    archive: 'Case 03',
+    type: 'Brand & Digital Experience',
+    year: '2026',
     description:
-      "A visual universe inspired by memory archives, film photography and intimate storytelling experiences.",
-    visual: "Emotional archive",
-    action: "Read the story",
-    tags: ["Art Direction", "Storytelling", "Motion", "Editorial"],
+      'A visual universe inspired by memory archives, film photography and intimate storytelling experiences.',
+    visual: 'Emotional archive',
+    action: 'Read the story',
+    tags: ['Art Direction', 'Storytelling', 'Motion', 'Editorial'],
   },
 ];
 
 const translations = {
   en: {
-    navProjects: "Projects",
-    navProcess: "Process",
-    navAbout: "About",
-    contact: "Contact",
-    badge: "Product Designer · UX/UI · AI sensitive experiences",
-    hero: "Designing interfaces that feel remembered.",
+    navProjects: 'Projects',
+    navProcess: 'Process',
+    navAbout: 'About',
+    contact: 'Contact',
+    badge: 'Product Designer · UX/UI · AI sensitive experiences',
+    hero: 'Designing interfaces that feel remembered.',
     heroText:
-      "I craft thoughtful digital experiences between product strategy, editorial aesthetics and AI-enhanced interactions.",
-    selected: "Selected work",
-    projects: "Projects",
+      'I craft thoughtful digital experiences between product strategy, editorial aesthetics and AI-enhanced interactions.',
+    selected: 'Selected work',
+    projects: 'Projects',
     projectsText:
-      "A curated selection of projects designed as stories — combining context, systems and human-centered experiences.",
-    processTitle: "Design approach",
-    processHero: "A soft system for useful products.",
-    about: "About",
-    aboutHero: "Designing with care, memory and clarity.",
+      'A curated selection of projects designed as stories — combining context, systems and human-centered experiences.',
+    processTitle: 'Design approach',
+    processHero: 'A soft system for useful products.',
+    about: 'About',
+    aboutHero: 'Designing with care, memory and clarity.',
     aboutText1:
       "I'm Annie, a Product Designer crafting thoughtful digital experiences between human emotion, accessibility and intelligent systems.",
     aboutText2:
-      "My work is deeply inspired by memories, warm visuals, healthcare and the small details that make interfaces feel reassuring and alive.",
+      'My work is deeply inspired by memories, warm visuals, healthcare and the small details that make interfaces feel reassuring and alive.',
     aboutText3:
-      "Through product strategy, UX thinking and visual storytelling, I explore how design can simplify complexity while still feeling intimate and deeply human.",
+      'Through product strategy, UX thinking and visual storytelling, I explore how design can simplify complexity while still feeling intimate and deeply human.',
     quote: "Designing products that people don't just use — but remember.",
-    footer1: "© 2026 Annie Tran — Product Design Portfolio",
-    footer2: "Available for Product Design, UX/UI and AI product projects.",
+    footer1: '© 2026 Annie Tran — Product Design Portfolio',
+    footer2: 'Available for Product Design, UX/UI and AI product projects.',
   },
   fr: {
-    navProjects: "Projets",
-    navProcess: "Process",
-    navAbout: "À propos",
-    contact: "Contact",
-    badge: "Product Designer · UX/UI · expériences IA sensibles",
-    hero: "Créer des interfaces qui laissent une trace.",
+    navProjects: 'Projets',
+    navProcess: 'Process',
+    navAbout: 'À propos',
+    contact: 'Contact',
+    badge: 'Product Designer · UX/UI · expériences IA sensibles',
+    hero: 'Créer des interfaces qui laissent une trace.',
     heroText:
       "Je crée des expériences digitales sensibles entre stratégie produit, esthétique éditoriale et interactions augmentées par l'IA.",
-    selected: "Travaux sélectionnés",
-    projects: "Projets",
+    selected: 'Travaux sélectionnés',
+    projects: 'Projets',
     projectsText:
-      "Une sélection de projets pensés comme des récits mêlant contexte, systèmes et expériences humaines.",
-    processTitle: "Approche design",
-    processHero: "Un système doux pour des produits utiles.",
-    about: "À propos",
-    aboutHero: "Designer avec soin, mémoire et clarté.",
+      'Une sélection de projets pensés comme des récits mêlant contexte, systèmes et expériences humaines.',
+    processTitle: 'Approche design',
+    processHero: 'Un système doux pour des produits utiles.',
+    about: 'À propos',
+    aboutHero: 'Designer avec soin, mémoire et clarté.',
     aboutText1:
-      "Je suis Annie, Product Designer créant des expériences digitales entre émotion humaine, accessibilité et systèmes intelligents.",
+      'Je suis Annie, Product Designer créant des expériences digitales entre émotion humaine, accessibilité et systèmes intelligents.',
     aboutText2:
-      "Mon travail est inspiré par les souvenirs, les visuels chaleureux, la santé et les détails qui rendent les interfaces rassurantes et vivantes.",
+      'Mon travail est inspiré par les souvenirs, les visuels chaleureux, la santé et les détails qui rendent les interfaces rassurantes et vivantes.',
     aboutText3:
       "À travers la stratégie produit, l'UX et le storytelling visuel, j'explore comment simplifier la complexité tout en gardant une approche intime et humaine.",
     quote:
       "Créer des produits que les gens ne font pas qu'utiliser — mais dont ils se souviennent.",
-    footer1: "© 2026 Annie Tran — Portfolio Product Design",
-    footer2: "Disponible pour des projets Product Design, UX/UI et IA.",
+    footer1: '© 2026 Annie Tran — Portfolio Product Design',
+    footer2: 'Disponible pour des projets Product Design, UX/UI et IA.',
   },
 };
 
 const process = [
   {
     icon: Search,
-    title: "Observe",
-    text: "I start from real behaviors, frustrations and subtle interactions that reveal genuine human needs.",
+    title: 'Observe',
+    text: 'I start from real behaviors, frustrations and subtle interactions that reveal genuine human needs.',
   },
   {
     icon: Layers,
-    title: "Structure",
-    text: "I transform abstract ideas into understandable systems, flows, priorities and product experiences.",
+    title: 'Structure',
+    text: 'I transform abstract ideas into understandable systems, flows, priorities and product experiences.',
   },
   {
     icon: PenTool,
-    title: "Shape",
-    text: "I design interfaces that feel clear, sensitive and memorable, with strong attention to visual detail.",
+    title: 'Shape',
+    text: 'I design interfaces that feel clear, sensitive and memorable, with strong attention to visual detail.',
   },
   {
     icon: CalendarDays,
-    title: "Evolve",
-    text: "I see products as living systems — adaptable, testable and built to evolve with future behaviors.",
+    title: 'Evolve',
+    text: 'I see products as living systems — adaptable, testable and built to evolve with future behaviors.',
   },
 ];
 
 export default function PortfolioAnnie() {
-  const [language, setLanguage] = useState("en");
-  const [theme, setTheme] = useState("light");
+  const [language, setLanguage] = useState('en');
+  const [theme, setTheme] = useState('light');
   const [clickedCard, setClickedCard] = useState<number | null>(null);
   const [emotionHovered, setEmotionHovered] = useState(false);
   const [systemsHovered, setSystemsHovered] = useState(false);
@@ -141,7 +141,9 @@ export default function PortfolioAnnie() {
   const t = translations[language];
 
   const playTocSound = () => {
-    const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+    const audioContext = new (
+      window.AudioContext || (window as any).webkitAudioContext
+    )();
     const oscillator = audioContext.createOscillator();
     const gainNode = audioContext.createGain();
 
@@ -149,9 +151,12 @@ export default function PortfolioAnnie() {
     gainNode.connect(audioContext.destination);
 
     oscillator.frequency.value = 800;
-    oscillator.type = "sine";
+    oscillator.type = 'sine';
     gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+    gainNode.gain.exponentialRampToValueAtTime(
+      0.01,
+      audioContext.currentTime + 0.1,
+    );
 
     oscillator.start(audioContext.currentTime);
     oscillator.stop(audioContext.currentTime + 0.1);
@@ -164,7 +169,9 @@ export default function PortfolioAnnie() {
   };
 
   return (
-    <div className={`portfolio-page ${theme === "dark" ? "dark-mode" : "light-mode"}`}>
+    <div
+      className={`portfolio-page ${theme === 'dark' ? 'dark-mode' : 'light-mode'}`}
+    >
       {(emotionHovered || systemsHovered || usefulHovered) && (
         <div
           className="flowers-container"
@@ -176,7 +183,7 @@ export default function PortfolioAnnie() {
                 const delay = Math.random() * 0.5;
                 return `<div class="flower" style="left: ${left}%; --tx: ${tx}px; animation-delay: ${delay}s">🌸</div>`;
               })
-              .join('')
+              .join(''),
           }}
         />
       )}
@@ -876,18 +883,27 @@ export default function PortfolioAnnie() {
           <div className="nav-actions">
             <button
               className="lang-btn"
-              onClick={() => setLanguage(language === "en" ? "fr" : "en")}
+              onClick={() => setLanguage(language === 'en' ? 'fr' : 'en')}
             >
               <Languages size={16} />
-              <span style={{ fontWeight: language === "en" ? 800 : 400 }}>EN</span>/
-              <span style={{ fontWeight: language === "fr" ? 800 : 400 }}>FR</span>
+              <span style={{ fontWeight: language === 'en' ? 800 : 400 }}>
+                EN
+              </span>
+              /
+              <span style={{ fontWeight: language === 'fr' ? 800 : 400 }}>
+                FR
+              </span>
             </button>
             <button
               className="theme-btn"
-              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-              aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              aria-label={
+                theme === 'light'
+                  ? 'Switch to dark mode'
+                  : 'Switch to light mode'
+              }
             >
-              {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
+              {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
             </button>
             <button className="primary-btn">{t.contact}</button>
           </div>
@@ -910,11 +926,10 @@ export default function PortfolioAnnie() {
 
           <div className="glow" />
           <div className="floating-card">
-            <p className="serif" style={{ fontSize: 28 }}>memory archive</p>
-            <Link
-              to="/portfolio"
-              style={{ position: 'relative' }}
-            >
+            <p className="serif" style={{ fontSize: 28 }}>
+              memory archive
+            </p>
+            <Link to="/portfolio" style={{ position: 'relative' }}>
               A portfolio about{' '}
               <span
                 className="emotion-highlight"
@@ -998,7 +1013,11 @@ export default function PortfolioAnnie() {
                         rest: { rotate: 2, y: 0, scale: 1 },
                         hover: { rotate: -1.5, y: -14, scale: 1.025 },
                       }}
-                      transition={{ type: "spring", stiffness: 180, damping: 18 }}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 180,
+                        damping: 18,
+                      }}
                       className="artifact"
                     >
                       <div className="artifact-top">
@@ -1015,35 +1034,53 @@ export default function PortfolioAnnie() {
                         />
                         <motion.div
                           className="line"
-                          style={{ width: "75%" }}
-                          variants={{ rest: { width: "75%" }, hover: { width: "88%" } }}
+                          style={{ width: '75%' }}
+                          variants={{
+                            rest: { width: '75%' },
+                            hover: { width: '88%' },
+                          }}
                         />
                         <motion.div
                           className="line"
-                          style={{ width: "50%" }}
-                          variants={{ rest: { width: "50%" }, hover: { width: "68%" } }}
+                          style={{ width: '50%' }}
+                          variants={{
+                            rest: { width: '50%' },
+                            hover: { width: '68%' },
+                          }}
                         />
                         <motion.div
                           className="line"
-                          style={{ width: "65%" }}
-                          variants={{ rest: { width: "65%" }, hover: { width: "78%" } }}
+                          style={{ width: '65%' }}
+                          variants={{
+                            rest: { width: '65%' },
+                            hover: { width: '78%' },
+                          }}
                         />
                       </div>
                     </motion.div>
 
                     <motion.div
-                      className={`memory-card ${clickedCard === index ? "clicked" : ""}`}
+                      className={`memory-card ${clickedCard === index ? 'clicked' : ''}`}
                       variants={{
                         rest: { y: 0, rotate: -3 },
                         hover: { y: 14, rotate: -1 },
                       }}
-                      transition={{ type: "spring", stiffness: 170, damping: 18 }}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 170,
+                        damping: 18,
+                      }}
                       onClick={() => handleCardClick(index)}
                     >
                       <p className="serif" style={{ fontSize: 26, margin: 0 }}>
                         {project.archive}
                       </p>
-                      <p style={{ margin: "6px 0 0", color: "rgba(54,17,16,0.55)" }}>
+                      <p
+                        style={{
+                          margin: '6px 0 0',
+                          color: 'rgba(54,17,16,0.55)',
+                        }}
+                      >
                         product memory
                       </p>
                     </motion.div>
@@ -1054,11 +1091,18 @@ export default function PortfolioAnnie() {
                         rest: { opacity: 0, y: -32, rotate: -2 },
                         hover: { opacity: 1, y: 0, rotate: -2 },
                       }}
-                      transition={{ type: "spring", stiffness: 180, damping: 20 }}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 180,
+                        damping: 20,
+                      }}
                     >
-                      <p className="note-title">A hidden note for curious eyes</p>
+                      <p className="note-title">
+                        A hidden note for curious eyes
+                      </p>
                       <p className="note-text">
-                        Hover to open the archive and discover the story behind this project.
+                        Hover to open the archive and discover the story behind
+                        this project.
                       </p>
                     </motion.div>
                   </motion.div>
@@ -1070,10 +1114,10 @@ export default function PortfolioAnnie() {
 
         <section id="process" className="dark-section">
           <div className="dark-inner">
-            <p style={{ color: "rgba(247,239,231,0.55)" }} className="eyebrow">
+            <p style={{ color: 'rgba(247,239,231,0.55)' }} className="eyebrow">
               {t.processTitle}
             </p>
-            <h2 style={{ color: "#F7EFE7", maxWidth: 780 }}>{t.processHero}</h2>
+            <h2 style={{ color: '#F7EFE7', maxWidth: 780 }}>{t.processHero}</h2>
 
             <div className="process-grid">
               {process.map((item) => {
