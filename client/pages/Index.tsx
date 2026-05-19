@@ -136,6 +136,8 @@ export default function PortfolioAnnie() {
   const [theme, setTheme] = useState("light");
   const [clickedCard, setClickedCard] = useState<number | null>(null);
   const [emotionHovered, setEmotionHovered] = useState(false);
+  const [systemsHovered, setSystemsHovered] = useState(false);
+  const [usefulHovered, setUsefulHovered] = useState(false);
   const t = translations[language];
 
   const playTocSound = () => {
@@ -163,7 +165,7 @@ export default function PortfolioAnnie() {
 
   return (
     <div className={`portfolio-page ${theme === "dark" ? "dark-mode" : "light-mode"}`}>
-      {emotionHovered && (
+      {(emotionHovered || systemsHovered || usefulHovered) && (
         <div
           className="flowers-container"
           dangerouslySetInnerHTML={{
@@ -911,17 +913,33 @@ export default function PortfolioAnnie() {
             <p className="serif" style={{ fontSize: 28 }}>memory archive</p>
             <Link
               to="/portfolio"
-              onMouseEnter={() => setEmotionHovered(true)}
-              onMouseLeave={() => setEmotionHovered(false)}
               style={{ position: 'relative' }}
             >
               A portfolio about{' '}
               <span
                 className="emotion-highlight"
+                onMouseEnter={() => setEmotionHovered(true)}
+                onMouseLeave={() => setEmotionHovered(false)}
               >
                 emotion
               </span>
-              {', systems and useful products.'}
+              {', '}
+              <span
+                className="emotion-highlight"
+                onMouseEnter={() => setSystemsHovered(true)}
+                onMouseLeave={() => setSystemsHovered(false)}
+              >
+                systems
+              </span>
+              {' and '}
+              <span
+                className="emotion-highlight"
+                onMouseEnter={() => setUsefulHovered(true)}
+                onMouseLeave={() => setUsefulHovered(false)}
+              >
+                useful products
+              </span>
+              {'.'}
             </Link>
           </div>
         </section>
