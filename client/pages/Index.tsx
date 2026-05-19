@@ -167,7 +167,7 @@ export default function PortfolioAnnie() {
         <div
           className="flowers-container"
           dangerouslySetInnerHTML={{
-            __html: Array.from({ length: 10000 })
+            __html: Array.from({ length: 100 })
               .map((_, i) => {
                 const left = Math.random() * 100;
                 const tx = (Math.random() - 0.5) * 400;
