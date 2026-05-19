@@ -165,7 +165,7 @@ export default function PortfolioAnnie() {
     <div className={`portfolio-page ${theme === "dark" ? "dark-mode" : "light-mode"}`}>
       {emotionHovered && (
         <div className="flowers-container">
-          {Array.from({ length: 20 }).map((_, i) => (
+          {Array.from({ length: 10000 }).map((_, i) => (
             <div
               key={i}
               className="flower"
