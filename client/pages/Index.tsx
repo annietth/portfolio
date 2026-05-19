@@ -438,7 +438,7 @@ export default function PortfolioAnnie() {
         .floating-card {
           position: absolute;
           right: 56px;
-          top: 68px;
+          bottom: 48px;
           transform: rotate(-8deg);
           border-radius: 28px;
           border: 1px solid rgba(54, 17, 16, 0.1);
