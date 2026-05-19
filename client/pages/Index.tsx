@@ -164,22 +164,19 @@ export default function PortfolioAnnie() {
   return (
     <div className={`portfolio-page ${theme === "dark" ? "dark-mode" : "light-mode"}`}>
       {emotionHovered && (
-        <div className="flowers-container">
-          {Array.from({ length: 10000 }).map((_, i) => (
-            <div
-              key={i}
-              className="flower"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `-100px`,
-                '--tx': `${(Math.random() - 0.5) * 400}px` as React.CSSProperties,
-                animationDelay: `${Math.random() * 0.5}s`,
-              } as React.CSSProperties}
-            >
-              🌸
-            </div>
-          ))}
-        </div>
+        <div
+          className="flowers-container"
+          dangerouslySetInnerHTML={{
+            __html: Array.from({ length: 10000 })
+              .map((_, i) => {
+                const left = Math.random() * 100;
+                const tx = (Math.random() - 0.5) * 400;
+                const delay = Math.random() * 0.5;
+                return `<div class="flower" style="left: ${left}%; --tx: ${tx}px; animation-delay: ${delay}s">🌸</div>`;
+              })
+              .join('')
+          }}
+        />
       )}
       <style>{`
         * { box-sizing: border-box; }
