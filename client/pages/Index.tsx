@@ -929,7 +929,7 @@ export default function PortfolioAnnie() {
             <p className="serif" style={{ fontSize: 28 }}>
               memory archive
             </p>
-            <Link to="/portfolio" style={{ position: 'relative' }}>
+            <Link to="/" style={{ position: 'relative' }}>
               A portfolio about{' '}
               <span
                 className="emotion-highlight"
